@@ -29,7 +29,7 @@ def insertion(df, table, index=True):
     return query, df
 
 
-def read_clickhouse(query, tables=None, index=True, connection=None, cert_file=None, as_data_frame=True, add_col_names=True, **kwargs):
+def read_clickhouse(query, tables=None, index=True, connection=None, cert_file=None, as_data_frame=True, add_col_names=True, verify=True, **kwargs):
     """Reads clickhouse query to pandas dataframe
 
     Parameters
@@ -73,7 +73,8 @@ def read_clickhouse(query, tables=None, index=True, connection=None, cert_file=N
                         external=external, 
                         stream=False,
                         connection=connection, 
-                        cert_file=cert_file)
+                        cert_file=cert_file,
+                        verify=verify)
         return lines
 
 
